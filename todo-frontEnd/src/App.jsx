@@ -8,6 +8,7 @@ import TodoComponent from "./components/TodoComponent";
 import RegisterComponent from "./components/RegisterComponent";
 import LoginComponent from "./components/LoginComponent";
 import { isUserLoggedIn } from "./services/AuthService";
+import SampleDataPage from "./components/SampleDataPage";
 
 function App() {
   const AuthenticatedRoute = ({ children }) => {
@@ -43,6 +44,7 @@ function App() {
           <Route path="/edit-todo/:id" element={<TodoComponent />}></Route>
           <Route path="/register" element={<RegisterComponent />}></Route>
           <Route path="/login" element={<LoginComponent />}></Route>
+          {/* <Route path="/" element={<SampleDataPage />}></Route> */}
         </Routes>
         <FooterComponent />
       </BrowserRouter>
