@@ -9,6 +9,7 @@ import RegisterComponent from "./components/RegisterComponent";
 import LoginComponent from "./components/LoginComponent";
 import { isUserLoggedIn } from "./services/AuthService";
 import SampleDataPage from "./components/SampleDataPage";
+import useInactivityLogout from "./components/useInactivityLogout";
 
 function App() {
   const AuthenticatedRoute = ({ children }) => {
@@ -19,9 +20,15 @@ function App() {
     return <Navigate to="/" />;
   };
 
+  const InactivityWrapper = () => {
+    useInactivityLogout(); // Hook used here inside the Router context
+    return null;
+  };
+
   return (
     <>
       <BrowserRouter>
+        <InactivityWrapper />
         <HeaderComponent />
         <Routes>
           <Route path="/" element={<LoginComponent />}></Route>
